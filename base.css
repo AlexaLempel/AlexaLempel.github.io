@@ -4,10 +4,61 @@ h1{
   font-family: 'Bungee', cursive;
   border: 5px dotted #ffdf0f;
   text-align: center;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 50px;
-  margin-bottom: 100px;
+  margin: 50px auto 50px auto;
+  width: 80%;
   max-width: 700px;
   padding: 10px ;
+}
+
+#spectrum{
+  /* border-collapse: collapse; */
+  border: none;
+  margin: 50px auto 50px auto;
+  width: 80%;
+}
+
+td{
+  border: none;
+  width: 40px;
+  height: 100px;
+}
+
+#one{
+  background-color: #cfc629;
+}
+#two{
+  background-color: #6ebe45;
+}
+#three{
+  background-color: #34b45d;
+}
+#four{
+  background-color: #12a9b2;
+}
+#five{
+  background-color: #298dcb;
+}
+#six{
+  background-color: #5e7dbe;
+}
+#seven{
+  background-color: #8d7daa;
+}
+#eight{
+  background-color: #c76f99;
+}
+#nine{
+  background-color: #f16b6a;
+}
+#ten{
+  background-color: #f05f2a;
+}
+#eleven{
+  background-color: #f36e1f;
+}
+#twelve{
+  background-color: #f18321;
+}
+#thirteen{
+  background-color: #cfc629;
 }
