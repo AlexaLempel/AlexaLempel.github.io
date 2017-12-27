@@ -1,4 +1,7 @@
+
 h1{
-  font-family: sans-serif;
-  border: 5px dotted yellow;
+  font-size: 36px;
+  font-family: 'Bungee', cursive;
+  border: 5px dotted #ffdf0f;
+  text-align: center;
 }
