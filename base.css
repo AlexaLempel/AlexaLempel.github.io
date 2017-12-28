@@ -1,7 +1,6 @@
-
 h1{
   font-size: 36px;
-  font-family: 'Bungee', cursive;
+  font-family: 'Bungee', cursive, sans-serif;
   border: 5px dotted #ffdf0f;
   text-align: center;
   margin: 50px auto 50px auto;
@@ -62,4 +61,21 @@ td{
 }
 #thirteen{
   background-color: #cfc629;
+}
+
+#one:hover,
+#two:hover,
+#three:hover,
+#four:hover,
+#five:hover,
+#six:hover,
+#seven:hover,
+#eight:hover,
+#nine:hover,
+#ten:hover,
+#eleven:hover,
+#twelve:hover,
+#thirteen:hover{
+  background-color: white;
+  transition: background-color .2s;
 }
