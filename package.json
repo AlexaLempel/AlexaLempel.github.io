@@ -1,0 +1,26 @@
+{
+  "name": "Gomoku",
+  "version": "1.0.0",
+  "description": "### Background Gomoku is a simple two-player game played on a 15x15 grid, akin to Connect4 without any notion of verticality. The objective is to connect **exactly** 5 stones of your color in a line.",
+  "main": "index.js",
+  "scripts": {
+    "webpack": "webpack --mode=development --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ixjamesyoo/Gomoku.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ixjamesyoo/Gomoku/issues"
+  },
+  "homepage": "https://github.com/ixjamesyoo/Gomoku#readme",
+  "dependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.4",
+    "babel-preset-env": "^1.7.0",
+    "webpack": "^4.8.3"
+  }
+}
