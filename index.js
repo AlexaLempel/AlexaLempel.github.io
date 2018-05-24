@@ -30,6 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (game.isOver()){
       console.log("Game over!");
+      canvasEl.removeEventListener("mousedown", clickHandler);
     }
 
     // else if (game.currentPlayer === "PLAYER2" && player2 instanceof Computer) {
