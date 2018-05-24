@@ -17,5 +17,5 @@ document.addEventListener("DOMContentLoaded", () => {
   const display = new Display(game, ctx);
   game.play();
 
-  requestAnimationFrame(display.render);
+  setInterval(display.render, 100);
 });
