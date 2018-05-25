@@ -26,24 +26,42 @@ document.addEventListener("DOMContentLoaded", () => {
     const move = [Math.round(xPosition/35), Math.round(yPosition/35)];
     try {
       game.board.placeStone(move);
+      // canvasEl.removeEventListener("mousedown", clickHandler);
       display.render(move);
       game.switchPlayer();
-    } catch(error) {
+    }
+    catch(error) {
       console.log(error);
     }
+
+    // setTimeout(() => {
+    //   if (game.isOver()){
+    //     console.log("Game over!");
+    //     // canvasEl.removeEventListener("mousedown", clickHandler);
+    //   } else if (game.currentPlayer === "PLAYER2" && player2 instanceof Computer) {
+    //
+    //       // canvasEl.removeEventListener("mousedown", clickHandler);
+    //       const cpuMove = player2.getMove(game.board);
+    //       game.board.placeStone(cpuMove);
+    //       display.render(cpuMove);
+    //       game.switchPlayer();
+    //       canvasEl.addEventListener("mousedown", clickHandler);
+    //   }
+    //
+    // }, 0);
 
     if (game.isOver()){
       console.log("Game over!");
       canvasEl.removeEventListener("mousedown", clickHandler);
-    }
-    else if (game.currentPlayer === "PLAYER2" && player2 instanceof Computer) {
-      console.log("Player2");
-      // canvasEl.removeEventListener("mousedown", clickHandler);
-      const cpuMove = player2.getMove(game.board);
-      game.board.placeStone(cpuMove);
-      display.render(cpuMove);
-      game.switchPlayer();
-      // canvasEl.addEventListener("mousedown", clickHandler);
+    } else if (game.currentPlayer === "PLAYER2" && player2 instanceof Computer) {
+      setTimeout(() => {
+        canvasEl.removeEventListener("mousedown", clickHandler);
+        const cpuMove = player2.getMove(game.board);
+        game.board.placeStone(cpuMove);
+        display.render(cpuMove);
+        game.switchPlayer();
+        canvasEl.addEventListener("mousedown", clickHandler);
+      }, 15);
     }
 
   };
