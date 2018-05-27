@@ -47,9 +47,16 @@ document.addEventListener("DOMContentLoaded", () => {
         const cpuMove = player2.getMove(game.board);
         game.board.placeStone(cpuMove);
         display.render(cpuMove);
-        game.switchPlayer();
-        canvasEl.addEventListener("mousedown", clickHandler);
+
+        if (game.isOver()){
+          console.log("Game over!");
+        }else {
+          game.switchPlayer();
+          canvasEl.addEventListener("mousedown", clickHandler);
+        }
       }, 15);
+
+      // need to check if cpu won!
     }
 
   };
