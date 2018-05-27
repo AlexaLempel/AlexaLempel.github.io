@@ -46,6 +46,7 @@ document.addEventListener("DOMContentLoaded", () => {
         canvasEl.removeEventListener("mousedown", clickHandler);
         const cpuMove = player2.getMove(game.board);
         game.board.placeStone(cpuMove);
+        console.log(`cpuMove: ${cpuMove}`)
         display.render(cpuMove);
 
         if (game.isOver()){
