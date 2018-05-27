@@ -55,8 +55,6 @@ document.addEventListener("DOMContentLoaded", () => {
           canvasEl.addEventListener("mousedown", clickHandler);
         }
       }, 15);
-
-      // need to check if cpu won!
     }
 
   };
