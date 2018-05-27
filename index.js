@@ -5,6 +5,7 @@ import Computer from "./lib/computer";
 
 const CELL_SIZE = 35;
 
+
 document.addEventListener("DOMContentLoaded", () => {
   const canvasEl = document.getElementById("canvas");
   const ctx = canvasEl.getContext("2d");
@@ -14,8 +15,11 @@ document.addEventListener("DOMContentLoaded", () => {
   // const player2 = new Player("Player2");
   const player2 = new Computer("Player2");
   const game = new Game(player1, player2);
-  window.game = game;
   const display = new Display(game.board.grid, ctx);
+
+// testing
+  window.game = game;
+  window.relevantMoves = player2.relevantMoves;
 
   const clickHandler = (e) => {
     // const xPosition = e.clientY;
@@ -33,22 +37,6 @@ document.addEventListener("DOMContentLoaded", () => {
     catch(error) {
       console.log(error);
     }
-
-    // setTimeout(() => {
-    //   if (game.isOver()){
-    //     console.log("Game over!");
-    //     // canvasEl.removeEventListener("mousedown", clickHandler);
-    //   } else if (game.currentPlayer === "PLAYER2" && player2 instanceof Computer) {
-    //
-    //       // canvasEl.removeEventListener("mousedown", clickHandler);
-    //       const cpuMove = player2.getMove(game.board);
-    //       game.board.placeStone(cpuMove);
-    //       display.render(cpuMove);
-    //       game.switchPlayer();
-    //       canvasEl.addEventListener("mousedown", clickHandler);
-    //   }
-    //
-    // }, 0);
 
     if (game.isOver()){
       console.log("Game over!");
