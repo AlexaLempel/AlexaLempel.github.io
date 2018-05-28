@@ -9,8 +9,8 @@ const CELL_SIZE = 35;
 document.addEventListener("DOMContentLoaded", () => {
   const canvasEl = document.getElementById("canvas");
   const ctx = canvasEl.getContext("2d");
-  canvasEl.width = CELL_SIZE * 14 + 1;
-  canvasEl.height = CELL_SIZE * 14 + 1;
+  canvasEl.width = CELL_SIZE * 16 + 1;
+  canvasEl.height = CELL_SIZE * 16 + 1;
   const player1 = new Player("Player1");
   // const player2 = new Player("Player2");
   const player2 = new Computer("Player2");
@@ -24,8 +24,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const clickHandler = (e) => {
     // const xPosition = e.clientY;
     // const yPosition = e.clientX;
-    const xPosition = e.pageY - canvasEl.offsetTop;
-    const yPosition = e.pageX - canvasEl.offsetLeft;
+    const xPosition = e.pageY - canvasEl.offsetTop - 35;
+    const yPosition = e.pageX - canvasEl.offsetLeft - 35;
     console.log([Math.round(xPosition/35), Math.round(yPosition/35)]);
     const move = [Math.round(xPosition/35), Math.round(yPosition/35)];
     try {
