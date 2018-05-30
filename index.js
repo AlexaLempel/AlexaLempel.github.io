@@ -67,10 +67,10 @@ document.addEventListener("DOMContentLoaded", () => {
         console.log("Game over!");
         canvasEl.removeEventListener("mousedown", clickHandler);
       } else if (player2 instanceof Computer) {
+        canvasEl.removeEventListener("mousedown", clickHandler);
         const thinkingModal = document.getElementById("thinking-modal");
         thinkingModal.classList.add("active-modal");
         setTimeout(() => {
-          canvasEl.removeEventListener("mousedown", clickHandler);
           const cpuMove = player2.getMove(game.board);
           game.board.placeStone(cpuMove);
           console.log(`cpuMove: ${cpuMove}`);

@@ -90,6 +90,8 @@ h1 > span {
 
 .active-modal {
   display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #canvas{
@@ -137,6 +139,16 @@ h1 > span {
 
 #setup-form input[type="submit"]:hover{
   background: #004d66;
+}
+
+.thinking-text {
+  color: #004d66;
+  background: #f2f2f2;
+  padding: 20px 25px;
+  border-radius: 7px;
+  border: 1px solid rgba(0,0,0,.12);
+  position: relative;
+  top: -100px;
 }
 
 .option-div {
