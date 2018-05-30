@@ -12,18 +12,46 @@ document.addEventListener("DOMContentLoaded", () => {
   canvasEl.width = CELL_SIZE * 16 + 1;
   canvasEl.height = CELL_SIZE * 16 + 1;
   const player1 = new Player("Player1");
-  // const player2 = new Player("Player2");
-  const player2 = new Computer("Player2");
-  const game = new Game(player1, player2);
-  const display = new Display(game.board.grid, ctx);
+  let player2 = new Player("Player2");
+  // let player2 = new Computer("Player2");
+  let game = new Game(player1, player2);
+  let display = new Display(game.board.grid, ctx);
 
 // testing
   window.game = game;
   window.relevantMoves = player2.relevantMoves;
 
+
+  const setupModal = document.getElementById("setup-modal");
+  setupModal.classList.add("active-modal");
+  setupModal.addEventListener("click", () => setupModal.classList.remove("active-modal"));
+
+  const setupForm = document.getElementById("setup-form");
+  setupForm.addEventListener("click", e => e.stopPropagation());
+  setupForm.addEventListener("submit", e => {
+    e.preventDefault();
+
+    const radios = document.getElementsByName("player2");
+    for (let i = 0; i < radios.length; i++) {
+      if (radios[i].checked) {
+        if (radios[i].value === "computer"){
+          player2 = new Computer("Player2");
+          game = new Game(player1, player2);
+          display = new Display(game.board.grid, ctx);
+          break;
+        } else {
+          player2 = new Player("Player2");
+          game = new Game(player1, player2);
+          display = new Display(game.board.grid, ctx);
+          break;
+        }
+      }
+    }
+    setupModal.classList.remove("active-modal");
+  });
+
+
   const clickHandler = (e) => {
-    // const xPosition = e.clientY;
-    // const yPosition = e.clientX;
     const xPosition = e.pageY - canvasEl.offsetTop - 35;
     const yPosition = e.pageX - canvasEl.offsetLeft - 35;
     console.log([Math.round(xPosition/35), Math.round(yPosition/35)]);

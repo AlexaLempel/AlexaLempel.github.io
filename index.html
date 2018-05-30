@@ -4,10 +4,25 @@
     <meta charset="utf-8">
     <title>Gomoku</title>
     <script type="application/javascript" src="lib/bundle.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Slab" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="stylesheet.css" />
   </head>
   <body>
     <div class="canvas-div">
+      <h1>Gomoku</h1>
 			<canvas id="canvas"></canvas>
 		</div>
+
+    <div class="modal-background" id="setup-modal">
+      <form id="setup-form">
+        <h2>Game Settings</h2>
+        <label for="human">Human</label>
+        <input id="human" type="radio" name="player2" value="human">
+        
+        <label for="computer">Computer</label>
+        <input id="computer" type="radio" name="player2" value="computer">
+        <input type="submit" name="" value="Start Game">
+      </form>
+    </div>
   </body>
 </html>
