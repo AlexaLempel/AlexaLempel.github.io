@@ -9,20 +9,47 @@
   </head>
   <body>
     <div class="canvas-div">
-      <h1>Gomoku</h1>
+      <nav>
+        <h1>Gomoku <span>by James Yoo</span></h1>
+        <div class="buttons-div">
+          <button type="button" name="button" id="settings-button">Game Settings</button>
+          <button type="button" name="button" id="restart-button">Restart Game</button>
+        </div>
+      </nav>
 			<canvas id="canvas"></canvas>
 		</div>
 
     <div class="modal-background" id="setup-modal">
       <form id="setup-form">
         <h2>Game Settings</h2>
-        <label for="human">Human</label>
-        <input id="human" type="radio" name="player2" value="human">
-        
-        <label for="computer">Computer</label>
-        <input id="computer" type="radio" name="player2" value="computer">
+        <h3>Opponent</h3>
+        <div class="option-div">
+          <div>
+            <label for="human">Human</label>
+            <input id="human" type="radio" name="player2" value="human">
+          </div>
+          <div>
+            <label for="computer">Computer</label>
+            <input id="computer" type="radio" name="player2" value="computer">
+          </div>
+        </div>
+        <h3>Your Color</h3>
+        <div class="option-div">
+          <div>
+            <label for="black">Black (first)</label>
+            <input id="black" type="radio" name="color" value="black">
+          </div>
+          <div>
+            <label for="white">White (second)</label>
+            <input id="white" type="radio" name="color" value="white">
+          </div>
+        </div>
         <input type="submit" name="" value="Start Game">
       </form>
+    </div>
+
+    <div class="modal-background" id="thinking-modal">    
+        <p>Computer is thinking...</p>
     </div>
   </body>
 </html>
