@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <title>Gomoku</title>
     <script type="application/javascript" src="lib/bundle.js"></script>
+    <script src="https://use.fontawesome.com/f9fbbb8168.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Slab" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="stylesheet.css" />
   </head>
@@ -14,6 +15,9 @@
         <div class="buttons-div">
           <button type="button" name="button" id="settings-button">Game Settings</button>
           <button type="button" name="button" id="restart-button">Restart Game</button>
+          <button type="button" name="button" id="about-button">
+            <i class="fa fa-question-circle-o fa-lg" aria-hidden="true"></i>
+          </button>
         </div>
       </nav>
 			<canvas id="canvas"></canvas>
@@ -53,9 +57,12 @@
     </div>
 
     <div class="modal-background" id="game-over-modal">
-      <p>Game over! Would you like to play again?</p>
-      <button type="button" name="button" id="yes">Yes</button>
-      <button type="button" name="button" id="no">No</button>
+      <div class="game-over-container">
+        <h3>Game over!</h3>
+        <p>Would you like to play again?</p>
+        <button type="button" name="button" id="yes">Yes</button>
+        <button type="button" name="button" id="no">No</button>
+      </div>
     </div>
   </body>
 </html>

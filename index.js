@@ -48,8 +48,18 @@ document.addEventListener("DOMContentLoaded", () => {
         display.render(cpuMove);
         game.switchPlayer();
       }
+    } else {
+      player2 = new Player("Player2");
+      game = new Game(player1, player2);
+      display = new Display(game.board.grid, ctx);
     }
     setupModal.classList.remove("active-modal");
+  });
+
+  const settingsButton = document.getElementById("settings-button");
+  settingsButton.addEventListener("click", e => {
+    e.preventDefault();
+    setupModal.classList.add("active-modal");
   });
 
   const clickHandler = (e) => {
@@ -66,6 +76,9 @@ document.addEventListener("DOMContentLoaded", () => {
       if (game.isOver()){
         console.log("Game over!");
         canvasEl.removeEventListener("mousedown", clickHandler);
+        setTimeout(() => {
+          gameOverModal.classList.add("active-modal");
+        }, 1500);
       } else if (player2 instanceof Computer) {
         canvasEl.removeEventListener("mousedown", clickHandler);
         const thinkingModal = document.getElementById("thinking-modal");
@@ -79,6 +92,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
           if (game.isOver()){
             console.log("Game over!");
+            setTimeout(() => {
+              gameOverModal.classList.add("active-modal");
+            }, 2500);
           }else {
             game.switchPlayer();
             canvasEl.addEventListener("mousedown", clickHandler);
@@ -92,14 +108,8 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   };
 
-  const settingsButton = document.getElementById("settings-button");
-  settingsButton.addEventListener("click", e => {
-    e.preventDefault();
-    setupModal.classList.add("active-modal");
-  });
-
-  const restartButton = document.getElementById("restart-button");
-  restartButton.addEventListener("click", e => {
+  const gameOverModal  = document.getElementById("game-over-modal");
+  const restartHandler = e => {
     e.preventDefault();
 
     if (game.player1 instanceof Computer) {
@@ -114,6 +124,21 @@ document.addEventListener("DOMContentLoaded", () => {
       game = new Game(player1, player2);
       display = new Display(game.board.grid, ctx);
     }
+
+    gameOverModal.classList.remove("active-modal");
+    canvasEl.addEventListener("mousedown", clickHandler);
+  };
+
+  const restartButton = document.getElementById("restart-button");
+  restartButton.addEventListener("click", restartHandler);
+
+  const yesButton = document.getElementById("yes");
+  yesButton.addEventListener("click", restartHandler);
+
+  const noButton = document.getElementById("no");
+  noButton.addEventListener("click", e => {
+    e.preventDefault();
+    gameOverModal.classList.remove("active-modal");
   });
 
   canvasEl.addEventListener("mousedown", clickHandler);

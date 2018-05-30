@@ -64,6 +64,16 @@ nav {
   background: #a6a6a6;
 }
 
+#about-button {
+  background: none;
+  border: none;
+  margin: 0;
+}
+
+#about-button > i {
+  color: #004d66;
+}
+
 h1 {
   font-family: 'Roboto Slab', serif;
   color: #004d66;
@@ -149,6 +159,39 @@ h1 > span {
   border: 1px solid rgba(0,0,0,.12);
   position: relative;
   top: -100px;
+}
+
+.game-over-container {
+  background: #f2f2f2;
+  text-align: center;
+  padding: 15px;
+  border-radius: 7px;
+  border: 1px solid rgba(0,0,0,.12);
+}
+
+.game-over-container > h3 {
+  font-size: 22px;
+  color: #004d66;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #666;
+}
+
+.game-over-container > p {
+  margin: 10px;
+}
+
+.game-over-container > button {
+  padding: 5px 11px;
+  background: #006080;
+  color: white;
+  font-size: 14px;
+  font-weight: 300;
+  border-radius: 5px;
+  margin: 0 7px;
+}
+
+.game-over-container > button:hover {
+  background: #004d66;
 }
 
 .option-div {
