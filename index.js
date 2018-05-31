@@ -21,7 +21,6 @@ document.addEventListener("DOMContentLoaded", () => {
   window.game = game;
   window.relevantMoves = player2.relevantMoves;
 
-
   const setupModal = document.getElementById("setup-modal");
   setupModal.classList.add("active-modal");
   setupModal.addEventListener("click", () => setupModal.classList.remove("active-modal"));
@@ -61,6 +60,18 @@ document.addEventListener("DOMContentLoaded", () => {
     e.preventDefault();
     setupModal.classList.add("active-modal");
   });
+
+  const aboutModal = document.getElementById("about-modal");
+  aboutModal.addEventListener("click", () => aboutModal.classList.remove("active-modal"));
+
+  const aboutContainer = document.getElementById("about-container");
+  aboutContainer.addEventListener("click", e => e.stopPropagation());
+
+  const aboutButton = document.getElementById("about-button");
+  aboutButton.addEventListener("click",() => aboutModal.classList.add("active-modal") );
+
+  const closeButton = document.getElementById("close-button");
+  closeButton.addEventListener("click", () => aboutModal.classList.remove("active-modal"));
 
   const clickHandler = (e) => {
     const xPosition = e.pageY - canvasEl.offsetTop - 35;
