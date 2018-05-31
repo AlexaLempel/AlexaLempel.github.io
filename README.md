@@ -1,5 +1,7 @@
 # Gomoku
 
+Live Version: https://ixjamesyoo.github.io/Gomoku/
+
 ### Background
 Gomoku is a simple two-player game played on a 15x15 grid, akin to Connect4 without any notion of verticality. The objective is to connect **exactly** 5 stones of your color in a line. Any open intersection on the game grid is a valid position for your move.
 
