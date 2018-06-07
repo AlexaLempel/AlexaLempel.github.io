@@ -48,6 +48,7 @@ document.addEventListener("DOMContentLoaded", () => {
       display = new Display(game.board.grid, ctx);
     }
     setupModal.classList.remove("active-modal");
+    canvasEl.addEventListener("mousedown", clickHandler);
   });
 
   const settingsButton = document.getElementById("settings-button");
@@ -120,11 +121,9 @@ document.addEventListener("DOMContentLoaded", () => {
       game.board.placeStone(cpuMove);
       display.render(cpuMove);
       game.switchPlayer();
-      canvasEl.addEventListener("mousedown", clickHandler);
     } else {
       game = new Game(player1, player2);
       display = new Display(game.board.grid, ctx);
-      canvasEl.addEventListener("mousedown", clickHandler);
     }
 
     gameOverModal.classList.remove("active-modal");
