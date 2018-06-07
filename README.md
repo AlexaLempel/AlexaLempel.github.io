@@ -3,34 +3,80 @@
 Live Version: https://ixjamesyoo.github.io/Gomoku/
 
 ### Background
-Gomoku is a simple two-player game played on a 15x15 grid, akin to Connect4 without any notion of verticality. The objective is to connect **exactly** 5 stones of your color in a line. Any open intersection on the game grid is a valid position for your move.
+Gomoku is a simple two-player game played on a 15x15 grid, akin to Connect4 without any notion of verticality. The objective is to connect 5 stones of your color in a line--horizontally, vertically or diagonally. Any open intersection on the game grid is a valid position for your move.
 
-### Functionality & MVP
-With this Gomoku browser game, users will be able to:
-* play against another human or against the computer
-* start/restart the game
-* choose between going first (white) or second (black)
+### Design and Implementation
 
-Additionally, I plan to flesh out the project with:
-* a modal describing the background and rules of the game
-* a production readme
-* a footer with links to github repo and portfolio site, etc.
-* **a computer AI implementation**--the rules of the game are simple making board state evaluation easy, but the degree of branching from a given board state is larger than chess, likely lending itself to some type of best-first search algorithm
+The game was written using vanilla JavaScript and HTML5 Canvas. The AI was implemented using a minimax algorithm with alpha-beta pruning. Search space reduction based upon domain-specific knowledge.
 
-### Technologies
-This project will be implemented with the following technologies:
+``` javascript
+minimax(grid, currentDepth, targetDepth, isMaximizingPlayer, alpha, beta, possibleMoves, cpuColor) {
+  if (currentDepth === targetDepth || this.terminalState(grid)) {
+    const gridHash = this.hashFunction(grid);
+    if (this.minimaxCache[gridHash]){
+      return this.minimaxCache[gridHash];
+    } else {
+      let value = this.evaluate(grid, cpuColor);
+      this.minimaxCache[gridHash] = value;
+      return value;
+    }
+  }
 
-* JavaScript for game logic,
-* HTML5 Canvas for rendering,
-* webpack to bundle js files.
+  const currentColor = currentDepth % 2 === 0 ? 2 : 1;
+  if (isMaximizingPlayer) {
+    let bestVal = Number.NEGATIVE_INFINITY;
 
-In addition to the entry file, there will be three scripts involved in this project:
+    for (let i = 0; i < grid.length; i++) {
+      for (let j = 0; j < grid.length; j++) {
+        if (possibleMoves[i][j] && !grid[i][j]) {
+          grid[i][j] = currentColor;
+          const gridHash = this.hashFunction(grid);
+          let value;
+          if (this.minimaxCache[gridHash]) {
+            value = this.minimaxCache[gridHash];
+          } else {
+            const newMoves = this.nearbyMoves(grid);
+            value = this.minimax(grid, currentDepth+1, targetDepth, false, alpha, beta, newMoves, cpuColor);
+            this.minimaxCache[gridHash] = value;
+          }
+          grid[i][j] = 0;
+          bestVal = Math.max(bestVal, value);
+          alpha = Math.max(alpha, bestVal);
+          if (beta <= alpha) break;
+        }
+      }
+    }
+    return bestVal;
+  } else {
+    let bestVal= Number.POSITIVE_INFINITY;
 
-* board.js: this script will handle the logic for creating and updating the board element and rendering to the DOM.
-* game.js: this script will handle game logic, e.g. ensuring move is valid or checking if game is won.
-* computer.js: this script will handle AI for computer player
+    for (let i = 0; i < grid.length; i++) {
+      for (let j = 0; j < grid.length; j++) {
+        if (possibleMoves[i][j] && !grid[i][j]) {
+          grid[i][j] = currentColor;
+          const gridHash = this.hashFunction(grid);
+          let value;
+          if (this.minimaxCache[gridHash]) {
+            value = this.minimaxCache[gridHash];
+          } else {
+            const newMoves = this.nearbyMoves(grid);
+            value = this.minimax(grid, currentDepth+1, targetDepth, true, alpha, beta, newMoves, cpuColor);
+            this.minimaxCache[gridHash] = value;
+          }
+          grid[i][j] = 0;
+          bestVal = Math.min(bestVal, value);
+          beta = Math.min(beta, bestVal);
+          if (beta <= alpha) break;
+        }
+      }
+    }
+    return bestVal;
+  }
+}
+```
 
-### Implementation Timeline
-Days 1 & 2: creating board element, game logic and polishing front end display
 
-Days 3-5: working on AI implementation
+### Future Directions
+* Improvements to AI to allow greater search depth. Alpha-beta pruning is far more effective when the possible moves are ordered by some heuristic. Implement a negascout algorithm, which dominates alpha-beta pruning.
+* Iterative deepening to allow computer to return move choice in a timely fashion.
+* Async "thinking" for AI to increase search depth while human player considers his/her own move.

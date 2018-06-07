@@ -17,10 +17,6 @@ document.addEventListener("DOMContentLoaded", () => {
   let game = new Game(player1, player2);
   let display = new Display(game.board.grid, ctx);
 
-// testing
-  window.game = game;
-  window.relevantMoves = player2.relevantMoves;
-
   const setupModal = document.getElementById("setup-modal");
   setupModal.classList.add("active-modal");
   setupModal.addEventListener("click", () => setupModal.classList.remove("active-modal"));
@@ -43,7 +39,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const cpuMove = player2.getMove(game.board);
         game.board.placeStone(cpuMove);
-        console.log(`cpuMove: ${cpuMove}`);
         display.render(cpuMove);
         game.switchPlayer();
       }
@@ -76,7 +71,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const clickHandler = (e) => {
     const xPosition = e.pageY - canvasEl.offsetTop - 35;
     const yPosition = e.pageX - canvasEl.offsetLeft - 35;
-    console.log([Math.round(xPosition/35), Math.round(yPosition/35)]);
     const move = [Math.round(xPosition/35), Math.round(yPosition/35)];
 
     try {
@@ -85,7 +79,6 @@ document.addEventListener("DOMContentLoaded", () => {
       game.switchPlayer();
 
       if (game.isOver()){
-        console.log("Game over!");
         canvasEl.removeEventListener("mousedown", clickHandler);
         setTimeout(() => {
           gameOverModal.classList.add("active-modal");
@@ -97,12 +90,10 @@ document.addEventListener("DOMContentLoaded", () => {
         setTimeout(() => {
           const cpuMove = player2.getMove(game.board);
           game.board.placeStone(cpuMove);
-          console.log(`cpuMove: ${cpuMove}`);
           display.render(cpuMove);
           thinkingModal.classList.remove("active-modal");
 
           if (game.isOver()){
-            console.log("Game over!");
             setTimeout(() => {
               gameOverModal.classList.add("active-modal");
             }, 2500);
@@ -115,7 +106,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     catch(error) {
       alert(error);
-      console.log(error);
     }
   };
 
@@ -128,12 +118,13 @@ document.addEventListener("DOMContentLoaded", () => {
       display = new Display(game.board.grid, ctx);
       const cpuMove = player2.getMove(game.board);
       game.board.placeStone(cpuMove);
-      console.log(`cpuMove: ${cpuMove}`);
       display.render(cpuMove);
       game.switchPlayer();
+      canvasEl.addEventListener("mousedown", clickHandler);
     } else {
       game = new Game(player1, player2);
       display = new Display(game.board.grid, ctx);
+      canvasEl.addEventListener("mousedown", clickHandler);
     }
 
     gameOverModal.classList.remove("active-modal");
