@@ -30,7 +30,6 @@ button {
 .canvas-div {
   width: 100%;
   padding-bottom: 70px;
-  background: url("assets/background.jpeg");
   background-size: cover;
 }
 
@@ -51,9 +50,8 @@ nav {
 
 .buttons-div > button {
   height: 20px;
-  background: #ccc;
+  background: #aaa;
   border: 1px solid rgba(0,0,0,.12);
-  color: #004d66;
   border-radius: 5px;
   font-size: 14px;
   padding: 4px 6px;
@@ -80,7 +78,6 @@ nav {
 
 h1 {
   font-family: 'Roboto Slab', serif;
-  color: #004d66;
   font-size: 35px;
   margin-left: 20px;
 }

@@ -1,7 +1,6 @@
 import Game from "./lib/game";
 import Display from "./lib/display";
 import Player from "./lib/player";
-import Computer from "./lib/computer";
 
 const CELL_SIZE = 35;
 
@@ -17,7 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
   let game = new Game(player1, player2);
   let display = new Display(game.board.grid, ctx);
 
-  const setupModal = document.getElementById("setup-modal");
+ /*  const setupModal = document.getElementById("setup-modal");
   setupModal.classList.add("active-modal");
   setupModal.addEventListener("click", () => setupModal.classList.remove("active-modal"));
 
@@ -25,28 +24,9 @@ document.addEventListener("DOMContentLoaded", () => {
   setupForm.addEventListener("click", e => e.stopPropagation());
   setupForm.addEventListener("submit", e => {
     e.preventDefault();
-    const playerRadios = document.getElementsByName("player2");
-    if (playerRadios[1].checked){
-      const turnRadios = document.getElementsByName("color");
-      if (turnRadios[0].checked) {
-        player2 = new Computer("Player2");
-        game = new Game(player1, player2);
-        display = new Display(game.board.grid, ctx);
-      }else {
-        player2 = new Computer("Player2");
-        game = new Game(player2, player1);
-        display = new Display(game.board.grid, ctx);
-
-        const cpuMove = player2.getMove(game.board);
-        game.board.placeStone(cpuMove);
-        display.render(cpuMove);
-        game.switchPlayer();
-      }
-    } else {
-      player2 = new Player("Player2");
-      game = new Game(player1, player2);
-      display = new Display(game.board.grid, ctx);
-    }
+    player2 = new Player("Player2");
+    game = new Game(player1, player2);
+    display = new Display(game.board.grid, ctx);
     setupModal.classList.remove("active-modal");
     canvasEl.addEventListener("mousedown", clickHandler);
   });
@@ -55,19 +35,7 @@ document.addEventListener("DOMContentLoaded", () => {
   settingsButton.addEventListener("click", e => {
     e.preventDefault();
     setupModal.classList.add("active-modal");
-  });
-
-  const aboutModal = document.getElementById("about-modal");
-  aboutModal.addEventListener("click", () => aboutModal.classList.remove("active-modal"));
-
-  const aboutContainer = document.getElementById("about-container");
-  aboutContainer.addEventListener("click", e => e.stopPropagation());
-
-  const aboutButton = document.getElementById("about-button");
-  aboutButton.addEventListener("click",() => aboutModal.classList.add("active-modal") );
-
-  const closeButton = document.getElementById("close-button");
-  closeButton.addEventListener("click", () => aboutModal.classList.remove("active-modal"));
+  }); */
 
   const clickHandler = (e) => {
     const xPosition = e.pageY - canvasEl.offsetTop - 35;
@@ -76,7 +44,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     try {
       game.board.placeStone(move);
-      display.render(move);
+      game.board.checkForJump();
+      display.drawBoard();
+      display.render(game.board);
       game.switchPlayer();
 
       if (game.isOver()){
@@ -84,48 +54,18 @@ document.addEventListener("DOMContentLoaded", () => {
         setTimeout(() => {
           gameOverModal.classList.add("active-modal");
         }, 1500);
-      } else if (player2 instanceof Computer) {
-        canvasEl.removeEventListener("mousedown", clickHandler);
-        const thinkingModal = document.getElementById("thinking-modal");
-        thinkingModal.classList.add("active-modal");
-        setTimeout(() => {
-          const cpuMove = player2.getMove(game.board);
-          game.board.placeStone(cpuMove);
-          display.render(cpuMove);
-          thinkingModal.classList.remove("active-modal");
-
-          if (game.isOver()){
-            setTimeout(() => {
-              gameOverModal.classList.add("active-modal");
-            }, 2500);
-          }else {
-            game.switchPlayer();
-            canvasEl.addEventListener("mousedown", clickHandler);
-          }
-        }, 15);
       }
     }
     catch(error) {
-      alert(error);
+      console.log(error);
     }
   };
 
   const gameOverModal  = document.getElementById("game-over-modal");
   const restartHandler = e => {
     e.preventDefault();
-
-    if (game.player1 instanceof Computer) {
-      game = new Game(player2, player1);
-      display = new Display(game.board.grid, ctx);
-      const cpuMove = player2.getMove(game.board);
-      game.board.placeStone(cpuMove);
-      display.render(cpuMove);
-      game.switchPlayer();
-    } else {
-      game = new Game(player1, player2);
-      display = new Display(game.board.grid, ctx);
-    }
-
+    game = new Game(player1, player2);
+    display = new Display(game.board.grid, ctx);
     gameOverModal.classList.remove("active-modal");
     canvasEl.addEventListener("mousedown", clickHandler);
   };

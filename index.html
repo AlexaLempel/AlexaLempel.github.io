@@ -12,32 +12,18 @@
   <body>
     <div class="canvas-div">
       <nav>
-        <h1>Gomoku <span>by James Yoo</span></h1>
+        <h1>Pente</h1>
         <div class="buttons-div">
-          <button type="button" name="button" id="settings-button">Game Settings</button>
+          <!-- <button type="button" name="button" id="settings-button">Game Settings</button> -->
           <button type="button" name="button" id="restart-button">Restart Game</button>
-          <button type="button" name="button" id="about-button">
-            <i class="fa fa-question-circle-o fa-lg" aria-hidden="true"></i>
-          </button>
         </div>
       </nav>
 			<canvas id="canvas"></canvas>
 		</div>
 
-    <div class="modal-background" id="setup-modal">
+  <!--   <div class="modal-background" id="setup-modal">
       <form id="setup-form">
         <h2>Game Settings</h2>
-        <h3>Opponent</h3>
-        <div class="option-div">
-          <div>
-            <label for="human">Human</label>
-            <input id="human" type="radio" name="player2" value="human">
-          </div>
-          <div>
-            <label for="computer">Computer</label>
-            <input id="computer" type="radio" name="player2" value="computer">
-          </div>
-        </div>
         <h3>Your Color</h3>
         <div class="option-div">
           <div>
@@ -52,11 +38,7 @@
         <input type="submit" name="" value="Start Game">
       </form>
     </div>
-
-    <div class="modal-background" id="thinking-modal">
-      <p class="thinking-text">Computer is thinking...</p>
-    </div>
-
+ -->
     <div class="modal-background" id="game-over-modal">
       <div class="game-over-container">
         <h3>Game over!</h3>
@@ -65,31 +47,5 @@
         <button type="button" name="button" id="no">No</button>
       </div>
     </div>
-
-    <div class="modal-background" id="about-modal">
-      <div id="about-container">
-        <i class="fa fa-times" aria-hidden="true" id="close-button"></i>
-        <h3>About Gomoku</h3>
-        <p>
-          Gomoku, also called Gobang or Five in a Row, is an abstract strategy game played on a 15x15 grid.
-          Players alternate turns placing a stone of their color on an empty intersection. <span class="highlight">The winner is the first player to form an unbroken chain of five stones horizontally, vertically, or diagonally.</span><br><br>
-
-          The first player (black) holds a strong advantage; it has been proven that when starting from an empty board, black can always enforce a win if playing optimally. Modern Gomoku pro rules have been instituted to decrease black's advantage.
-          <a target="_blank" href="https://en.wikipedia.org/wiki/Gomoku">Wikipedia</a>
-        </p>
-      </div>
-    </div>
-
-    <footer>
-      <a target="_blank" href="https://github.com/ixjamesyoo">
-        <i class="fa fa-github-square fa-2x" aria-hidden="true"></i>
-      </a>
-      <a target="_blank" href="https://www.linkedin.com/in/james-yoo-2a839615b/">
-        <i class="fa fa-linkedin-square fa-2x" aria-hidden="true"></i>
-      </a>
-      <a target="_blank" href="http://www.james-yoo.com/">
-        <i class="fa fa-laptop fa-2x" aria-hidden="true"></i>
-      </a>
-    </footer>
   </body>
 </html>
