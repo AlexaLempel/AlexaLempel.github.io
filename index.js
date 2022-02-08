@@ -70,17 +70,17 @@ document.addEventListener("DOMContentLoaded", () => {
     canvasEl.addEventListener("mousedown", clickHandler);
   };
 
-  const restartButton = document.getElementById("restart-button");
-  restartButton.addEventListener("click", restartHandler);
+  // const restartButton = document.getElementById("restart-button");
+  // restartButton.addEventListener("click", restartHandler);
 
-  const yesButton = document.getElementById("yes");
-  yesButton.addEventListener("click", restartHandler);
+  // const yesButton = document.getElementById("yes");
+  // yesButton.addEventListener("click", restartHandler);
 
-  const noButton = document.getElementById("no");
-  noButton.addEventListener("click", e => {
-    e.preventDefault();
-    gameOverModal.classList.remove("active-modal");
-  });
+  // const noButton = document.getElementById("no");
+  // noButton.addEventListener("click", e => {
+  //   e.preventDefault();
+  //   gameOverModal.classList.remove("active-modal");
+  // });
 
   canvasEl.addEventListener("mousedown", clickHandler);
 });

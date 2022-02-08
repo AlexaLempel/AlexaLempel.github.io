@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>Gomoku</title>
+    <title>Pente</title>
     <link rel="shortcut icon" type="image/png" href="assets/favicon.png"/>
     <script type="application/javascript" src="lib/bundle.js"></script>
     <script src="https://use.fontawesome.com/f9fbbb8168.js"></script>
@@ -13,11 +13,13 @@
     <div class="canvas-div">
       <nav>
         <h1>Pente</h1>
-        <div class="buttons-div">
-          <!-- <button type="button" name="button" id="settings-button">Game Settings</button> -->
+        <!-- <div class="buttons-div">
+          <button type="button" name="button" id="settings-button">Game Settings</button>
           <button type="button" name="button" id="restart-button">Restart Game</button>
-        </div>
+        </div> -->
       </nav>
+      <canvas id="blackJumps" width="100" height="561"></canvas>
+      <canvas id="whiteJumps"  width="100" height="561"></canvas>
 			<canvas id="canvas"></canvas>
 		</div>
 
@@ -42,9 +44,7 @@
     <div class="modal-background" id="game-over-modal">
       <div class="game-over-container">
         <h3>Game over!</h3>
-        <p>Would you like to play again?</p>
-        <button type="button" name="button" id="yes">Yes</button>
-        <button type="button" name="button" id="no">No</button>
+        <a href="/">Play Again</a>
       </div>
     </div>
   </body>
