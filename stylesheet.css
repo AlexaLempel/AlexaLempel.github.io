@@ -114,14 +114,16 @@ h1 > span {
 }
 
 #blackJumps{
-  left: 300px;
-  position: fixed;
+  left: 50%;
+  transform: translateX(-360px);
+  position: absolute;
   display: block;
 }
 
 #whiteJumps{
-  right: 300px;
-  position: fixed;
+  right: 50%;
+  transform: translateX(350px);
+  position: absolute;
   display: block;
 }
 

@@ -13,34 +13,14 @@
     <div class="canvas-div">
       <nav>
         <h1>Pente</h1>
-        <!-- <div class="buttons-div">
-          <button type="button" name="button" id="settings-button">Game Settings</button>
-          <button type="button" name="button" id="restart-button">Restart Game</button>
-        </div> -->
       </nav>
-      <canvas id="blackJumps" width="100" height="561"></canvas>
-      <canvas id="whiteJumps"  width="100" height="561"></canvas>
-			<canvas id="canvas"></canvas>
+      <div id="container">
+        <canvas id="blackJumps" width="60" height="561"></canvas>
+        <canvas id="whiteJumps"  width="60" height="561"></canvas>
+        <canvas id="canvas"></canvas>
+      </div>
 		</div>
 
-  <!--   <div class="modal-background" id="setup-modal">
-      <form id="setup-form">
-        <h2>Game Settings</h2>
-        <h3>Your Color</h3>
-        <div class="option-div">
-          <div>
-            <label for="black">Black (first)</label>
-            <input id="black" type="radio" name="color" value="black">
-          </div>
-          <div>
-            <label for="white">White (second)</label>
-            <input id="white" type="radio" name="color" value="white">
-          </div>
-        </div>
-        <input type="submit" name="" value="Start Game">
-      </form>
-    </div>
- -->
     <div class="modal-background" id="game-over-modal">
       <div class="game-over-container">
         <h3>Game over!</h3>
