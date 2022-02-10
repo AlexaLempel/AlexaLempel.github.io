@@ -56,9 +56,10 @@ nav {
 }
 
 h1 {
-  font-family: 'Bungee','Roboto Slab';
+  font-family: 'Cutive Mono','Bungee','Roboto Slab';
   font-size: 35px;
   margin-left: 20px;
+  color: white;
 }
 
 h1 > span {
