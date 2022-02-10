@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
       else {
         code = new Code(game.board);
-        console.log(code.encode());
+        window.location.href = "https://api.whatsapp.com/send?text=https://alexalempel.github.io?" + code.encode();
       }
     }
     catch(error) {
