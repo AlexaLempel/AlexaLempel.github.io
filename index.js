@@ -41,7 +41,13 @@ document.addEventListener("DOMContentLoaded", () => {
       }
       else {
         code = new Code(game.board);
-        window.location.href = "https://api.whatsapp.com/send?text=https://alexalempel.github.io?" + code.encode();
+        const url = "https://api.whatsapp.com/send?text=https://alexalempel.github.io?" + code.encode();
+        setTimeout(() => {
+          window.location.href = url;
+        }, 1000);
+        setTimeout(() => {
+          window.close();
+        },2000);
       }
     }
     catch(error) {
