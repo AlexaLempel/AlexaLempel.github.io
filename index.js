@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const url = "https://api.whatsapp.com/send?text=https://alexalempel.github.io?" + code.encode();
         setTimeout(() => {
           window.location.href = url;
-        }, 1000);
+        }, 750);
         setTimeout(() => {
           window.close();
         },2000);
