@@ -5,7 +5,7 @@ import Code from "./lib/code";
 const CELL_SIZE = 35;
 const queryStr = window.location.search;
 
-document.addEventListener("DOMContentLoaded", () => {
+window.addEventListener("load", () => {
   const canvasEl = document.getElementById("canvas");
   const ctx = canvasEl.getContext("2d");
   canvasEl.width = CELL_SIZE * 16 + 1;
