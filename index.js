@@ -2,14 +2,14 @@ import Game from "./lib/game";
 import Display from "./lib/display";
 import Code from "./lib/code";
 
-const CELL_SIZE = 35;
+const CELL_SIZE = 350;
 const queryStr = window.location.search;
 
 window.addEventListener("load", () => {
   const canvasEl = document.getElementById("canvas");
   const ctx = canvasEl.getContext("2d");
-  canvasEl.width = CELL_SIZE * 16 + 1;
-  canvasEl.height = CELL_SIZE * 16 + 1;
+  canvasEl.width = CELL_SIZE * 16 + 10;
+  canvasEl.height = CELL_SIZE * 16 + 10;
 
   let game = new Game();
   let display = new Display(game.board.grid, ctx);
@@ -22,9 +22,9 @@ window.addEventListener("load", () => {
   }
 
   const clickHandler = (e) => {
-    const xPosition = e.pageY - canvasEl.offsetTop - CELL_SIZE ;
-    const yPosition = e.pageX - canvasEl.offsetLeft - CELL_SIZE ;
-    const move = [Math.round(xPosition/CELL_SIZE ), Math.round(yPosition/CELL_SIZE )];
+    const xPosition = e.pageY - canvasEl.offsetTop - CELL_SIZE/10 ;
+    const yPosition = e.pageX - canvasEl.offsetLeft - CELL_SIZE/10 ;
+    const move = [Math.round(10*xPosition/CELL_SIZE ), Math.round(10*yPosition/CELL_SIZE )];
 
     try {
       game.board.placeStone(move);
