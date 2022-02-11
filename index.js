@@ -10,7 +10,6 @@ window.addEventListener("load", () => {
   const ctx = canvasEl.getContext("2d");
   canvasEl.width = CELL_SIZE * 16 + 10;
   canvasEl.height = CELL_SIZE * 16 + 10;
-  ctx.scale(10,10);
 
   let game = new Game();
   let display = new Display(game.board.grid, ctx);
