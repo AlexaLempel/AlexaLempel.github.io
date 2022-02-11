@@ -91,14 +91,12 @@ canvas{
   left: 50%;
   transform: translateX(-360px);
   position: absolute;
-  display: block;
 }
 
 #whiteJumps{
   right: 50%;
   transform: translateX(350px);
   position: absolute;
-  display: block;
 }
 
 #setup-form {
