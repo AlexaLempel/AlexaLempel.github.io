@@ -39,16 +39,16 @@ window.addEventListener("load", () => {
           gameOverModal.classList.add("active-modal");
         }, 1000);
       }
-      else {
-        code = new Code(game.board);
-        const url = "https://api.whatsapp.com/send?text=https://alexalempel.github.io?" + code.encode();
-        setTimeout(() => {
-          window.location.href = url;
-        }, 750);
-        setTimeout(() => {
-          window.close();
-        },2000);
-      }
+      // else {
+      //   code = new Code(game.board);
+      //   const url = "https://api.whatsapp.com/send?text=https://alexalempel.github.io?" + code.encode();
+      //   setTimeout(() => {
+      //     window.location.href = url;
+      //   }, 750);
+      //   setTimeout(() => {
+      //     window.close();
+      //   },2000);
+      // }
     }
     catch(error) {
       console.log(error);
